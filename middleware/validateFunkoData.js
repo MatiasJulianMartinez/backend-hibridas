@@ -1,4 +1,5 @@
 export const validateFunkoData = (req, res, next) => {
+    console.log("🛠️ BODY RECIBIDO EN VALIDACIÓN:", req.body); 
   const { nombre, categoriaId, precio, tipo, stock } = req.body;
 
   // Validacion de todos los campos requeridos
