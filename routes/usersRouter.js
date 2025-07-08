@@ -6,7 +6,7 @@ import { validateUpdateUserData } from "../middleware/validateUpdateUserData.js"
 import { verificarToken } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
-const SECRET_KEY = "tu_clave_secreta";
+const SECRET_KEY = process.env.SECRET_KEY || "tu_clave_secreta";
 
 // GET: Obtener todos los usuarios
 router.get("/", async (req, res) => {
