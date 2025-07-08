@@ -6,6 +6,7 @@ import cors from 'cors';
 
 dotenv.config();
 console.log("🚀 FRONTEND_URL cargado:", process.env.FRONTEND_URL); 
+
 connectDB();
 
 const app = express();
