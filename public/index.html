@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Documentación API - Mundo Funko</title>
+    <link rel="icon" href="../public/img/Logo.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+  </head>
+  <body class="bg-light">
+    <header class="bg-dark py-3 mb-4">
+      <div class="container d-flex align-items-center justify-content-between">
+        <img src="img/Logo.png" alt="Logo Mundo Funko" style="height: 160px" />
+        <h1 class="text-white text-center flex-grow-1 m-0">Documentación de la API - Mundo Funko</h1>
+      </div>
+    </header>
+
+    <main class="container mb-5">
+
+        <!-- Endpoints para Ruta Usuarios -->
+        <div class="row justify-content-center">
+          <div class="col-md-10">
+            <h3 class="text-center mb-4 text-primary">
+              Endpoints Publicos para Ruta Usuarios
+            </h3>
+  
+            <ul class="list-group mb-4">
+              <li class="list-group-item">
+                <strong>GET</strong> - <a href="/api/users">/api/users</a> -
+                Obtener todos los Usuarios
+              </li>
+              <li class="list-group-item">
+                <strong>GET</strong> -
+                <a href="/api/users/680f936a420c9d04cc7c3c58"
+                  >/api/users/{id users} - 680f936a420c9d04cc7c3c58</a
+                >
+                - Obtener un Usuario por ID
+              </li>
+            </ul>
+  
+            <!-- Agregado el POST para registrar un usuario -->
+            <div class="bg-white text-dark p-4 rounded mb-4 border mb-4">
+              <h5 class="mb-3">
+                <strong>POST</strong> -
+                <span class="text-info">/api/users/register</span>
+                <small class="text-muted">Registrar un nuevo Usuario</small>
+              </h5>
+  
+              <p>
+                <strong>Content-Type:</strong> application/json - Tiene
+                validacion - Devuelve Token.
+              </p>
+  
+              <p>Ejemplo de cuerpo (body) del POST:</p>
+  
+              <pre class="bg-light p-3 rounded">
+                <code>{
+                  "name":"Matias Emanuel Vallejos",
+                  "email":"matiasvallejos@gmail.com",
+                  "password":"123456"
+               }
+              </code></pre>
+            </div>
+  
+            <!-- Agregado el POST para Logear un usuario -->
+            <div class="bg-white text-dark p-4 rounded mb-4 border mb-4">
+              <h5 class="mb-3">
+                <strong>POST</strong> -
+                <span class="text-info">/api/users/login</span>
+                <small class="text-muted">Logeo de Usuario</small>
+              </h5>
+  
+              <p>
+                <strong>Content-Type:</strong> application/json - Tiene
+                validacion - Devuelve Token.
+              </p>
+  
+              <p>Ejemplo de cuerpo (body) del POST:</p>
+  
+              <pre class="bg-light p-3 rounded">
+                        <code>{
+                          "email":"matiasvallejos@gmail.com",
+                          "password":"123456"
+                       }
+                      </code></pre>
+            </div>
+  
+  
+            
+            <!-- Agregado el PUT para Modificar un usuario -->
+            <div class="bg-white text-dark p-4 rounded mb-4 border mb-4">
+              <h5 class="mb-3">
+                <strong>PUT</strong> -
+                <span class="text-warning">/api/users/{id-users}</span>
+                <small class="text-muted">Modificar un Usuario</small>
+              </h5>
+  
+              <p>
+                <strong>Content-Type:</strong> application/json - Requiere Token y Validacion.
+              </p>
+  
+              <p>Ejemplo de cuerpo (body) del POST:</p>
+  
+              <pre class="bg-light p-3 rounded">
+                        <code>{
+                          "name":"Matias Emanuel Vallejos modificado",
+                          "email":"matiasvallejos@gmail.com",
+                          "password":"123456"
+                       }
+                      </code></pre>
+            </div>
+  
+            <!-- Agregado el DELETE para eliminar un usuario -->
+            <div class="bg-white text-dark p-4 rounded mb-4 border mb-4">
+              <h5 class="mb-3">
+                <strong>DELETE</strong> -
+                <span class="text-danger">/api/users/{id-users}</span>
+                <small class="text-muted">Eliminar un Usuario</small>
+              </h5>
+  
+              <p>
+                <strong>Content-Type:</strong> application/json - Requiere Token.
+              </p>
+            </div>
+          </div>
+
+      <!-- Endpoints para Ruta Funko -->
+      <div class="row justify-content-center">
+        <div class="col-md-10">
+          <h3 class="text-center mb-4 text-success">
+            Endpoints Públicos Ruta Funkos
+          </h3>
+
+          <ul class="list-group mb-4">
+            <li class="list-group-item">
+              <strong>GET</strong> - <a href="/api/funkos">/api/funkos</a> -
+              Obtener todos los Funkos
+            </li>
+            <li class="list-group-item">
+              <strong>GET</strong> -
+              <a href="/api/funkos/680f94c7420c9d04cc7c3c7f"
+                >/api/funkos/{id funko} - 680f94c7420c9d04cc7c3c7f</a
+              >
+              - Obtener un Funko por ID
+            </li>
+            <li class="list-group-item">
+              <strong>GET (filtro por categoría)</strong> -
+              <a href="/api/funkos?categoriaId=680bab4e23896b0d0e324ab6"
+                >/api/funkos?categoriaId=680bab4e23896b0d0e324ab6</a
+              >
+              - Obtener Funkos por filtro de Categoría
+            </li>
+            <li class="list-group-item">
+              <strong>GET (filtro por precio)</strong> -
+              <a href="/api/funkos?precio=5000">/api/funkos?precio=5000</a> -
+              Obtener Funkos por filtro de Precio
+            </li>
+            <li class="list-group-item">
+              <strong>GET (filtro por tipo)</strong> -
+              <a href="/api/funkos?tipo=replica">/api/funkos?tipo=replica</a> -
+              Obtener Funkos por filtro de Tipo de Funko
+            </li>
+            <li class="list-group-item">
+              <strong>GET (filtro por nombre)</strong> -
+              <a href="/api/funkos?nombre=goku">/api/funkos?nombre=goku</a> -
+              Obtener Funkos por su Nombre
+            </li>
+          </ul>
+
+          <!-- Agregado el POST para crear un Funko -->
+          <div class="bg-white text-dark p-4 rounded mb-4 border mb-4">
+            <h5 class="mb-3">
+              <strong>POST</strong> -
+              <span class="text-info">/api/funkos</span>
+              <small class="text-muted">Crear un nuevo Funko</small>
+            </h5>
+
+            <p>
+              <strong>Content-Type:</strong> application/json - Requiere Token y
+              validacion.
+            </p>
+
+            <p>Ejemplo de cuerpo (body) del POST:</p>
+
+            <pre class="bg-light p-3 rounded">
+        <code>{
+          "nombre": "Funko Pop Harry Potter",
+          "categoriaId": "680d28706d7776fb08d81013",
+          "precio": 25000,
+          "tipo": "Replica",
+          "stock": 10
+      }
+      </code></pre>
+          </div>
+
+          <!-- Agregado el PUT para modificar un Funko -->
+          <div class="bg-white text-dark p-4 rounded mb-4 border mb-4">
+            <h5 class="mb-3">
+              <strong>PUT</strong> -
+              <span class="text-warning">/api/funkos/{id-funko}</span>
+              <small class="text-muted">Modificar un Funko</small>
+            </h5>
+
+            <p>
+              <strong>Content-Type:</strong> application/json - Requiere Token y
+              validacion.
+            </p>
+
+            <p>Ejemplo de cuerpo (body) del PUT:</p>
+
+            <pre class="bg-light p-3 rounded">
+              <code>{
+                "nombre": "Funko Pop Harry Potter with Ron",
+                "categoriaId": "680d28706d7776fb08d81013",
+                "precio": 25000,
+                "tipo": "Replica",
+                "stock": 10
+            }
+            </code></pre>
+          </div>
+
+          <!-- Agregado el DELETE para eliminar un Funko -->
+          <div class="bg-white text-dark p-4 rounded mb-4 border mb-4">
+            <h5 class="mb-3">
+              <strong>DELETE</strong> -
+              <span class="text-danger">/api/funkos/{id-funko}</span>
+              <small class="text-muted">Eliminar un Funko</small>
+            </h5>
+
+            <p><strong>Requiere Token</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Endpoints para Ruta Categorias -->
+      <div class="row justify-content-center">
+        <div class="col-md-10">
+          <h3 class="text-center mb-4 text-success">
+            Endpoints Públicos Ruta Categorias
+          </h3>
+
+          <ul class="list-group mb-4">
+            <li class="list-group-item">
+              <strong>GET</strong> -
+              <a href="/api/categorias">/api/categorias</a> - Obtener todas las
+              Categorías
+            </li>
+            <li class="list-group-item">
+              <strong>GET</strong> -
+              <a href="/api/categorias/680d28706d7776fb08d81013"
+                >/api/categorias/{id categoria} - 680d28706d7776fb08d81013</a
+              >
+              - Obtener categoría por ID
+            </li>
+            <li class="list-group-item">
+              <strong>GET (filtro por descripcion)</strong> -
+              <a href="/api/categorias?descripcion=Peliculas"
+                >/api/categorias?descripcion=Peliculas</a
+              >
+              - Obtener Categorias por filtro de Descripcion
+            </li>
+            <li class="list-group-item">
+              <strong>GET (filtro por tags)</strong> -
+              <a href="/api/categorias?tags=Stranger Things"
+                >/api/categorias?tags=Stranger Things</a
+              >
+              - Obtener Categorias por filtro de Tags
+            </li>
+            <li class="list-group-item">
+              <strong>GET (filtro por Pais de Origen)</strong> -
+              <a href="/api/categorias?paisOrigen=Japon"
+                >/api/categorias?paisOrigen=Japon</a
+              >
+              - Obtener categorias por filtro de Pais de Origen
+            </li>
+            <li class="list-group-item">
+              <strong>GET (filtro por material)</strong> -
+              <a href="/api/categorias?material=Vinilo"
+                >/api/categorias?material=Vinilo</a
+              >
+              - Obtener categorias por filtro de Material
+            </li>
+            <li class="list-group-item">
+              <strong>GET (filtro por nombre)</strong> -
+              <a href="/api/categorias?nombre=Anime"
+                >/api/categorias?nombre=Anime</a
+              >
+              - Obtener categorias por su Nombre
+            </li>
+          </ul>
+
+          <!-- Agregado el POST para crear una categoria -->
+          <div class="bg-white text-dark p-4 rounded mb-4 border mb-4">
+            <h5 class="mb-3">
+              <strong>POST</strong> -
+              <span class="text-info">/api/categorias</span>
+              <small class="text-muted">Crear una nueva Categoría</small>
+            </h5>
+
+            <p>
+              <strong>Content-Type:</strong> application/json - Requiere Token y
+              validacion.
+            </p>
+
+            <p>Ejemplo de cuerpo (body) del POST:</p>
+
+            <pre class="bg-light p-3 rounded">
+            <code>{
+              "nombre": "Funko Pop Anime",
+              "descripcion": "Categoría para Funkos del anime",
+              "tags": [
+                "One Piece",
+                "Naruto",
+                "Hunter x Hunter"
+              ],
+              "paisOrigen": "Japon",
+              "material": "Vinilo"
+          }
+          </code></pre>
+          </div>
+
+          <!-- Agregado el PUT para modificar una categoria -->
+          <div class="bg-white text-dark p-4 rounded mb-4 border mb-4">
+            <h5 class="mb-3">
+              <strong>PUT</strong> -
+              <span class="text-warning">/api/categorias/{id-categorias}</span>
+              <small class="text-muted">Modificar una Categoría</small>
+            </h5>
+
+            <p>
+              <strong>Content-Type:</strong> application/json - Requiere Token y
+              validacion.
+            </p>
+
+            <p>Ejemplo de cuerpo (body) del PUT:</p>
+
+            <pre class="bg-light p-3 rounded">
+                  <code>{
+                    "nombre": "Funko Pop Anime del 2025",
+                    "descripcion": "Categoría para Funkos del anime",
+                    "tags": [
+                      "One Piece",
+                      "Naruto",
+                      "Hunter x Hunter"
+                    ],
+                    "paisOrigen": "Japon",
+                    "material": "Vinilo"
+                }
+                </code></pre>
+          </div>
+
+          <!-- Agregado el DELETE para eliminar una categoria -->
+          <div class="bg-white text-dark p-4 rounded mb-4 border mb-4">
+            <h5 class="mb-3">
+              <strong>DELETE</strong> -
+              <span class="text-danger">/api/categorias/{id-categorias}</span>
+              <small class="text-muted">Eliminar una Categoría</small>
+            </h5>
+
+            <p><strong>Requiere Token</strong></p>
+          </div>
+        </div>
+      </div>
+
+    
+
+    </main>
+    <!-- Pie de Pagina con los datos requeridos -->
+    <footer class="bg-dark text-white py-4">
+      <div class="container text-center">
+        <h5 class="mb-3">Matias Julian Martinez</h5>
+        <ul class="list-unstyled">
+          <li class="mb-2">Materia: <strong>Aplicaciones Híbridas</strong></li>
+          <li class="mb-2">Docente: <strong>Jonatan Emanuel Cruz</strong></li>
+          <li>Comisión: <strong>DWT4AV</strong></li>
+        </ul>
+      </div>
+    </footer>
+    
+  </body>
+</html>
