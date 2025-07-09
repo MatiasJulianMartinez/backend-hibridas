@@ -5,7 +5,7 @@ import connectDB from './config/db.js';
 import cors from 'cors';
 
 dotenv.config();
-console.log("🚀 FRONTEND_URL cargado:", process.env.FRONTEND_URL); 
+console.log("FRONTEND_URL cargado:", process.env.FRONTEND_URL); 
 
 connectDB();
 
